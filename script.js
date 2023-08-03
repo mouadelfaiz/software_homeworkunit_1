@@ -12,38 +12,73 @@ let quotes = [
     const randomQuote = function() {
       document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
     };
-    randomQuote();
     
+ 
     // Do all of your work inside the document.addEventListener  
   
     // Part 1
   const title = document.querySelector("#main-title")
 
-    title.innerHTML = ("Hey Welcome To My Home Page")
+    title.innerHTML = ("R.I.P Paul Walker")
   
     // Part 2
   document.body.style.background = ("#186d94")
   
     // Part 3
   
-  
+  const listItem = document.getElementsByTagName("li")
+  listItem[5].remove()
+
     // Part 4
-  
-  
+  const specialTitles = document.querySelectorAll(".special-title")
+  const count = specialTitles.length;
+
+  for (let i = 0; i < count; i++) {
+    specialTitles[i].style.fontSize = "2rem"
+  }
     // Part 5
   
+    const pastRaces = document.getElementById("past-races")
+    
+    pastRaces.getElementsByTagName("li")[3].remove()
   
     // Part 6
-  
+    const list = document.createElement("li")
+    const node = document.createTextNode("Marrakech")
+    list.appendChild(node);
+
+    pastRaces.appendChild(list);
+    
   
     // Part 7
-  
+    
+        const mainSection = document.querySelector('main');
+        
+        const newBlogPost = document.createElement('div');
+        newBlogPost.classList.add('blog-post');
+        div.innerHTML += "<h2>Marrakech</h2>";
+        div.innerHTML += "<p>This is the most famous city in Marrakech";
+        mainSection.appendChild(newBlogPost);
   
     // Part 8
   
+    document.querySelector('#quote-title').addEventListener('click', randomQuote);
+    randomQuote();
+    // // Part 9
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    const mouseOutHandler = function() {
+      this.classList.toggle('purple');
+    };
   
-    // Part 9
+    const mouseEnterHandler = function() {
+      this.classList.toggle('red');
+    };
   
+    blogPosts.forEach(blogPost => {
+      blogPost.addEventListener('mouseout', mouseOutHandler);
+      blogPost.addEventListener('mouseenter', mouseEnterHandler);
+    });
   
   
   
