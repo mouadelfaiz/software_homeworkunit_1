@@ -13,7 +13,7 @@ let quotes = [
       document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
     };
     
- 
+    randomQuote()
     // Do all of your work inside the document.addEventListener  
   
     // Part 1
@@ -52,19 +52,22 @@ let quotes = [
   
     // Part 7
     
-        const mainSection = document.querySelector('main');
+        const mainSection = document.querySelector('.main');
         
         const newBlogPost = document.createElement('div');
-        newBlogPost.classList.add('blog-post');
-        div.innerHTML += "<h2>Marrakech</h2>";
-        div.innerHTML += "<p>This is the most famous city in Marrakech";
+        newBlogPost.classList.add('blog-post', 'purple');
+        const h1 = document.createElement("h1")
+        h1.innerText = "Barcelona"
+        const para = document.createElement("p")
+        para.innerText = "This is the most famous city in spain"
+        newBlogPost.appendChild(h1)
+        newBlogPost.appendChild(para)
         mainSection.appendChild(newBlogPost);
   
     // Part 8
-  
-    document.querySelector('#quote-title').addEventListener('click', randomQuote);
-    randomQuote();
-    // // Part 9
+    
+    document.querySelector('#quote-title').addEventListener('click', () => randomQuote());
+    // Part 9
     const blogPosts = document.querySelectorAll('.blog-post');
 
     const mouseOutHandler = function() {
@@ -79,7 +82,4 @@ let quotes = [
       blogPost.addEventListener('mouseout', mouseOutHandler);
       blogPost.addEventListener('mouseenter', mouseEnterHandler);
     });
-  
-  
-  
   });
